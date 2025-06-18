@@ -1,0 +1,73 @@
+.movie-card {
+  position: relative;
+  z-index: 0;
+  width: 200px;
+  background: #fff8e7;
+  border: 2px dashed #f4c5d7;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, opacity 0.3s ease;
+  opacity: 1;
+  font-family: 'Courier New', monospace;
+  clip-path: polygon(
+    0% 0%, 4% 0%, 4% 4%, 0% 4%, 0% 96%, 4% 96%, 4% 100%,
+    96% 100%, 96% 96%, 100% 96%, 100% 4%, 96% 4%, 96% 0%
+  );
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  border-color: #ff99bb;
+  box-shadow: 0 0 12px 3px #ff99bb;
+}
+
+.movie-card.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.movie-poster {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.movie-info {
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100px;
+}
+
+.movie-title {
+  font-size: 16px;
+  margin: 0;
+  color: #333;
+}
+
+.movie-rating {
+  font-size: 14px;
+  color: #777;
+  font-weight: bold;
+  margin-top: auto;
+}
+
+.movie-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0.3) 100%);
+  transform: skewX(-20deg);
+  z-index: -1;
+  transition: left 0.5s ease;
+}
+
+.movie-card:hover::before {
+  left: 100%;
+}
